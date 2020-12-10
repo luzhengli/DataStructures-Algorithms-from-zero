@@ -1,15 +1,13 @@
 #include <stdio.h>
 #include <stdbool.h>
-#define MaxSize 10
+
+#define MaxSize 50
 
 typedef struct
 {
     char data[MaxSize];
-    char top;
+    int top;
 } SqStack;
-// void InitStack(SqStack S);
-// bool Pop(SqStack S, char *x);
-// bool GetTop(SqStack S, char *x);
 
 void InitStack(SqStack *S) // 初始化
 {
@@ -27,7 +25,7 @@ bool Push(SqStack *S, char x) // 入栈
     {
         return false;
     }
-    (S->top)++;          // 栈顶指针加1
+    (S->top)++;           // 栈顶指针加1
     S->data[S->top] = x; // 元素入栈
     return true;
 }
@@ -43,12 +41,20 @@ bool Pop(SqStack *S, char *x) // 出栈 把元素返回给x
     return true;
 }
 
-bool GetTop(SqStack S, char *x) // 读栈顶元素
+bool bracketCheck(char str[]);
+int main(int argc, char const *argv[])
 {
-    if (S.top == -1) // 栈底
+    char s[] = "({})[[({})]]";
+
+    if (bracketCheck(s))
     {
-        return false;
+        printf("Check successful");
     }
-    *x = S.data[S.top];
-    return true;
+    else
+    {
+        printf("Check failing");
+    }
+
+    return 0;
 }
+
