@@ -6,7 +6,7 @@ typedef struct ArcNode // 边/弧
     struct ArcNode *next; // 指向下一条弧的指针
     //  边权值
 } ArcNode;
-
+ 
 typedef struct VNode // 顶点
 {
     char data;      // 顶点信息
